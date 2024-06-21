@@ -1,0 +1,90 @@
+<div class="row">
+
+    <div class="centered-container">
+        <button class="btn btn-secondary" (click)="getDataDisplay()">Display Data</button>
+    </div>
+
+    @if (isDisplayOn) {
+    <div class="col-8">
+        <div class="card-header bg-success text-center">
+            Department List
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-12">
+
+                    <table class="table table-bordered text-center">
+                        <thead>
+                            <tr>
+                                <th>Department ID</th>
+                                <th>Department Name</th>
+                                <th>Created Date</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @for (item of deptObj; track $index) {
+                            <tr>
+                                <td>{{$index+1}}</td>
+                                <td>{{item.deptName}}</td>
+                                <td>{{item.createdDate}}</td>
+                                <td class="text-center">
+                                    <button class="btn btn-primary" (click)="onEdit(item)">Edit</button>
+                                    <button class="btn btn-danger mx-2" (click)="deleteDepartment(item.id)">Delete</button>
+                                </td>
+                            </tr>
+                            }
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="col-4">
+        <div class="card-header bg-success text-center">
+            New Department
+        </div>
+        <div class="card-body">
+            <div class="row">
+
+                <!-- @if (!isEditOn) {
+                    <div class="col-12">
+                        <label for="">Department ID</label>
+                        <input type="text" name="deptId"  [(ngModel)]="newDepartment.deptId" class="form-control" >
+                    </div>
+                } -->
+
+                <div class="col-12 ">
+                    <label for="">Department Name</label>
+                    <input type="text" name="deptName" [(ngModel)]="newDepartment.deptName" class="form-control">
+                </div>
+                <div class="col-12">
+                    <label for="">Date of creation</label>
+                    <input type="date" name="createdDate" [(ngModel)]="newDepartment.createdDate" class="form-control">
+                </div>
+            </div>
+
+        </div>
+        <div class="row pt-3">
+            <div class="col-6 text-center">
+                <button class="btn btn-secondary" type="reset">Reset</button>
+            </div>
+            <div class="col-6 text-center">
+
+                @if (!isEditOn) {
+                <button class="btn btn-success" (click)="createDepartment()">Save Dept</button>
+                } @else {
+                <button class="btn btn-primary mx-2" (click)="updateDepartments()">Update Dept</button>
+                }
+
+
+            </div>
+        </div>
+    </div>
+
+    }
+</div>

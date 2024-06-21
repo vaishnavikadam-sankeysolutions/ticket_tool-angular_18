@@ -1,0 +1,23 @@
+Department-
+
+ParentCategory-
+
+ChildCategory-
+
+Employee-
+
+newTicket-
+
+ticketList-
+
+Dashboard-
+
+
+
+Login-
+
+Layout-
+
+apiURL - https://freeapi.minprojectideas.com/api/TicketsNew/  --post
+
+https://projectapi.gerasim.in/api/BudgetPlanner/login
